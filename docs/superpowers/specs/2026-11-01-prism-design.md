@@ -2,7 +2,7 @@
 
 Data: 2026-11-01
 Status: aguardando aprovação
-Pasta: `C:\AxolotlBR\#Projetos\prism-design`
+Pasta: `C:\AxolotlBR\#Projetos\prism`
 
 ## Intenção
 
@@ -98,7 +98,7 @@ Falha mesmo que funcione tecnicamente se:
 ### Estrutura
 
 ```
-prism-design/
+prism/
   package.json            # workspace raiz, scripts verify/dev/test/install:skill
   AGENTS.md               # roteia qualquer agente para a skill e para o manifesto
   PRISM.md                # brief curto para colar em IA sem acesso a arquivo
@@ -109,7 +109,7 @@ prism-design/
     scripts/              # check-tokens, check-consumer, build-manifest
   apps/catalog/           # catálogo Vite, ?view=components&theme=dark|light
   docs/prism/             # README, FUNDAMENTOS, COMPONENTES, ESTADOS, CONTRATO, ACESSIBILIDADE
-  skills/prism-design/    # SKILL.md: instrução que o agente carrega sozinho
+  skills/prism/    # SKILL.md: instrução que o agente carrega sozinho
   scripts/                # guardas de workspace + install-skill.mjs
 ```
 
@@ -191,12 +191,12 @@ O motivo de Prism existir é este: qualquer IA que receba uma tarefa de UI no un
 Axolotl deve produzir tela coerente sem o dono reexplicar a marca. A camada tem quatro
 peças, todas versionadas no repo:
 
-1. **`skills/prism-design/SKILL.md`** — skill com frontmatter (`name`, `description`)
+1. **`skills/prism/SKILL.md`** — skill com frontmatter (`name`, `description`)
    que descreve quando ela se aplica (qualquer tarefa de UI, layout, componente ou
    revisão visual em projeto Axolotl) e o caminho curto: consultar `manifest.json`,
    importar de `prism`, aplicar as regras de design, rodar o guarda de consumidor.
    Instalada por `npm run install:skill`, que copia para
-   `%USERPROFILE%\.config\opencode\skills\prism-design` e não sobrescreve versão
+   `%USERPROFILE%\.config\opencode\skills\prism` e não sobrescreve versão
    existente sem `--force`.
 2. **`PRISM.md`** — brief de até 400 palavras para colar em IA sem acesso a arquivo
    (ChatGPT, Claude web, Cursor). Contém tokens resumidos, lista de componentes,

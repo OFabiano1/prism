@@ -23,7 +23,7 @@ qual componente usar, quais regras de layout aplicar e o que nunca fazer.
 
 ## Documento de design
 
-[`docs/superpowers/specs/2026-11-01-prism-design-design.md`](docs/superpowers/specs/2026-11-01-prism-design-design.md)
+[`docs/superpowers/specs/2026-11-01-prism-design.md`](docs/superpowers/specs/2026-11-01-prism-design.md)
 
 ## Referência
 
