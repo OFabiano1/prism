@@ -1,0 +1,113 @@
+/* PRISM — color system.
+   Este é o único arquivo do sistema que declara cor literal.
+   Todo o resto lê os papéis semânticos abaixo. */
+
+.prism-root {
+  color-scheme: dark;
+
+  /* ---------- Brand ramp: Prism Purple ---------- */
+  --prism-purple-50: #f5ebff;
+  --prism-purple-100: #ebd6ff;
+  --prism-purple-200: #d7adff;
+  --prism-purple-300: #c085ff;
+  --prism-purple-400: #a34aff;
+  --prism-purple-500: #8f00ff;
+  --prism-purple-600: #7a00db;
+  --prism-purple-700: #6400b4;
+  --prism-purple-800: #4e008c;
+  --prism-purple-900: #380064;
+  --prism-purple-950: #2a004f;
+
+  /* ---------- Neutral ramp: dark surfaces ---------- */
+  --prism-neutral-100: #f0f0f4;
+  --prism-neutral-200: #dededf;
+  --prism-neutral-300: #b9b9c4;
+  --prism-neutral-400: #90909d;
+  --prism-neutral-500: #666674;
+  --prism-neutral-600: #41414d;
+  --prism-neutral-700: #292933;
+  --prism-neutral-800: #1c1c25;
+  --prism-neutral-850: #15151c;
+  --prism-neutral-900: #101015;
+  --prism-neutral-950: #09090d;
+
+  /* ---------- Brand roles ---------- */
+  --prism-primary: var(--prism-purple-500);
+  --prism-primary-hover: var(--prism-purple-400);
+  --prism-primary-active: var(--prism-purple-600);
+  --prism-primary-soft: color-mix(in srgb, var(--prism-primary) 14%, transparent);
+  --prism-primary-border: color-mix(in srgb, var(--prism-primary) 45%, transparent);
+  --prism-on-primary: #ffffff;
+
+  /* ---------- Backgrounds ---------- */
+  --background: var(--prism-neutral-950);
+  --surface: var(--prism-neutral-900);
+  --surface-elevated: var(--prism-neutral-850);
+  --surface-hover: var(--prism-neutral-800);
+
+  /* ---------- Text ---------- */
+  --text-primary: var(--prism-neutral-100);
+  --text-secondary: var(--prism-neutral-400);
+  --text-muted: var(--prism-neutral-500);
+  --text-inverse: var(--prism-neutral-950);
+
+  /* ---------- Borders ---------- */
+  --border-subtle: #20202a;
+  --border-default: var(--prism-neutral-700);
+  --border-strong: var(--prism-neutral-600);
+
+  /* ---------- Focus ---------- */
+  --focus-ring: var(--prism-purple-400);
+  --focus-ring-soft: color-mix(in srgb, var(--focus-ring) 35%, transparent);
+
+  /* ---------- Semantic ---------- */
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --info: #3b82f6;
+  --success-soft: color-mix(in srgb, var(--success) 14%, transparent);
+  --warning-soft: color-mix(in srgb, var(--warning) 14%, transparent);
+  --danger-soft: color-mix(in srgb, var(--danger) 14%, transparent);
+  --info-soft: color-mix(in srgb, var(--info) 14%, transparent);
+  --success-border: color-mix(in srgb, var(--success) 42%, transparent);
+  --warning-border: color-mix(in srgb, var(--warning) 42%, transparent);
+  --danger-border: color-mix(in srgb, var(--danger) 42%, transparent);
+  --info-border: color-mix(in srgb, var(--info) 42%, transparent);
+  --on-success: var(--prism-neutral-950);
+  --on-warning: var(--prism-neutral-950);
+  --on-danger: #ffffff;
+  --on-info: #ffffff;
+
+  /* ---------- Overlays ---------- */
+  --overlay: rgb(9 9 13 / 72%);
+  --selection: color-mix(in srgb, var(--prism-primary) 32%, transparent);
+  --skeleton: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  --scrollbar: color-mix(in srgb, var(--text-primary) 16%, transparent);
+}
+
+.prism-root[data-theme='light'] {
+  color-scheme: light;
+
+  --background: #fafafc;
+  --surface: #ffffff;
+  --surface-elevated: #f4f4f8;
+  --surface-hover: #ececf2;
+
+  --text-primary: #0b0b10;
+  --text-secondary: #55555f;
+  --text-muted: #6f6f7a;
+  --text-inverse: #ffffff;
+
+  --border-subtle: #ececf1;
+  --border-default: #dedee5;
+  --border-strong: #bdbdc8;
+
+  --prism-primary: var(--prism-purple-600);
+  --prism-primary-hover: var(--prism-purple-500);
+  --prism-primary-active: var(--prism-purple-700);
+  --focus-ring: var(--prism-purple-500);
+
+  --overlay: rgb(20 20 28 / 48%);
+  --skeleton: color-mix(in srgb, var(--text-primary) 7%, transparent);
+  --scrollbar: color-mix(in srgb, var(--text-primary) 18%, transparent);
+}

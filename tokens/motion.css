@@ -1,0 +1,25 @@
+/* PRISM — motion. Movimento funcional, curto e com caminho reduzido. */
+
+.prism-root {
+  --motion-instant: 100ms;
+  --motion-fast: 150ms;
+  --motion-normal: 200ms;
+  --motion-moderate: 300ms;
+  --motion-slow: 500ms;
+
+  --ease-standard: ease-in-out;
+  --ease-enter: ease-out;
+  --ease-exit: ease-in;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .prism-root,
+  .prism-root *,
+  .prism-root *::before,
+  .prism-root *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

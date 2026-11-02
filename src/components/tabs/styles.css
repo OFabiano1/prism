@@ -1,0 +1,69 @@
+/* PRISM — tabs. */
+
+.prism-tabs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  min-width: 0;
+}
+
+.prism-tabs-list {
+  display: flex;
+  gap: var(--space-1);
+  padding: var(--space-1);
+  overflow-x: auto;
+  background: var(--surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  scrollbar-width: none;
+}
+
+.prism-tabs-list::-webkit-scrollbar {
+  display: none;
+}
+
+.prism-tab {
+  flex: 0 0 auto;
+  min-height: 32px;
+  padding: 0 var(--space-4);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-body-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-secondary);
+  white-space: nowrap;
+  background: transparent;
+  border: 0;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition:
+    background-color var(--motion-fast) var(--ease-standard),
+    color var(--motion-fast) var(--ease-standard);
+}
+
+.prism-tab:hover:not(:disabled) {
+  color: var(--text-primary);
+  background: var(--surface-hover);
+}
+
+.prism-tab[aria-selected='true'] {
+  color: var(--text-primary);
+  background: var(--surface-hover);
+  box-shadow: var(--shadow-1);
+}
+
+.prism-tab:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.prism-tabs-panel {
+  min-width: 0;
+  font-size: var(--font-size-body-sm);
+  color: var(--text-secondary);
+}
+
+.prism-tabs-panel:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
+}

@@ -1,0 +1,67 @@
+{
+  "name": "prism",
+  "version": "1.0.0",
+  "description": "PRISM — design system do Axolotl BR. Tokens, primitives e componentes React com uma linguagem visual só.",
+  "type": "module",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "files": [
+    "dist",
+    "tokens",
+    "src",
+    "docs",
+    "README.md"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./styles.css": "./dist/styles.css",
+    "./tokens.css": "./dist/tokens.css",
+    "./manifest.json": "./dist/manifest.json"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json && node scripts/build-css.mjs && node scripts/build-manifest.mjs",
+    "typecheck": "tsc --noEmit",
+    "dev": "vite examples",
+    "build:examples": "vite build examples",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:browser": "playwright test",
+    "check:tokens": "node --test scripts/check-tokens.test.mjs",
+    "check:consumer": "node scripts/check-consumer.mjs",
+    "check:docs": "node scripts/check-docs.mjs",
+    "check:manifest": "node --test scripts/check-manifest.test.mjs",
+    "check:artifact": "node scripts/check-artifact.mjs",
+    "install:skill": "node scripts/install-skill.mjs",
+    "verify": "npm run build && npm run typecheck && npm run check:tokens && npm run check:manifest && npm run check:docs && npm run check:consumer && npm run test && npm run check:artifact"
+  },
+  "peerDependencies": {
+    "react": "^18.3.1 || ^19.0.0",
+    "react-dom": "^18.3.1 || ^19.0.0"
+  },
+  "dependencies": {
+    "lucide-react": "^0.454.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.58.2",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.1.0",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "jsdom": "^25.0.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11",
+    "vitest": "^2.1.8"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT"
+}

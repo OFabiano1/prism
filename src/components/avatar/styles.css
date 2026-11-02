@@ -1,0 +1,51 @@
+/* PRISM — avatar. */
+
+.prism-avatar {
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 auto;
+  width: 40px;
+  height: 40px;
+}
+
+.prism-avatar[data-size='xs'] { width: 24px; height: 24px; }
+.prism-avatar[data-size='sm'] { width: 32px; height: 32px; }
+.prism-avatar[data-size='lg'] { width: 56px; height: 56px; }
+
+.prism-avatar-image,
+.prism-avatar-fallback {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+}
+
+.prism-avatar-fallback {
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-strong);
+  color: var(--prism-primary-hover);
+  background: var(--prism-primary-soft);
+  border: 1px solid var(--prism-primary-border);
+  letter-spacing: 0.02em;
+}
+
+.prism-avatar[data-size='lg'] .prism-avatar-fallback {
+  font-size: var(--font-size-body-sm);
+}
+
+.prism-avatar-status {
+  position: absolute;
+  right: -1px;
+  bottom: -1px;
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--surface);
+  border-radius: var(--radius-full);
+}
+
+.prism-avatar-status[data-status='online'] { background: var(--success); }
+.prism-avatar-status[data-status='away'] { background: var(--warning); }
+.prism-avatar-status[data-status='busy'] { background: var(--danger); }

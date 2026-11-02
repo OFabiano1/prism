@@ -1,0 +1,71 @@
+/* PRISM — badge. */
+
+.prism-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 2px var(--space-2);
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.4;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  border-radius: var(--radius-full);
+}
+
+.prism-badge[data-size='sm'] {
+  font-size: var(--font-size-overline);
+  letter-spacing: 0.02em;
+}
+
+.prism-badge[data-tone='neutral'] {
+  color: var(--text-secondary);
+  background: var(--surface-hover);
+  border-color: var(--border-default);
+}
+
+.prism-badge[data-tone='brand'] {
+  color: var(--prism-primary-hover);
+  background: var(--prism-primary-soft);
+  border-color: var(--prism-primary-border);
+}
+
+.prism-badge[data-tone='success'] {
+  color: var(--success);
+  background: var(--success-soft);
+  border-color: var(--success-border);
+}
+
+.prism-badge[data-tone='warning'] {
+  color: var(--warning);
+  background: var(--warning-soft);
+  border-color: var(--warning-border);
+}
+
+.prism-badge[data-tone='danger'] {
+  color: var(--danger);
+  background: var(--danger-soft);
+  border-color: var(--danger-border);
+}
+
+.prism-badge[data-tone='info'] {
+  color: var(--info);
+  background: var(--info-soft);
+  border-color: var(--info-border);
+}
+
+.prism-badge-dot {
+  width: 6px;
+  height: 6px;
+  background: currentColor;
+  border-radius: var(--radius-full);
+}
+
+.prism-badge-icon {
+  display: inline-flex;
+}
+
+.prism-badge-icon svg {
+  width: 12px;
+  height: 12px;
+}

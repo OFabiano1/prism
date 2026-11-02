@@ -1,0 +1,39 @@
+/* PRISM — input. */
+
+.prism-input {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.prism-input-prefix {
+  display: inline-flex;
+  align-items: center;
+  align-self: stretch;
+  padding: 0 var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-body-sm);
+  color: var(--text-muted);
+  background: var(--surface-elevated);
+  border: 1px solid var(--border-default);
+  border-right: 0;
+  border-radius: var(--radius-md) 0 0 var(--radius-md);
+  white-space: nowrap;
+}
+
+.prism-input[data-prefix='true'] .prism-input-control {
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.prism-input[data-prefix='true'] .prism-input-control:focus-visible {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.prism-input[data-prefix='true'] .prism-input-prefix:has(+ .prism-input-control:focus-visible) {
+  border-color: var(--prism-primary);
+}
+
+.prism-input-control[type='search']::-webkit-search-cancel-button {
+  appearance: none;
+}

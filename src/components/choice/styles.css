@@ -1,0 +1,182 @@
+/* PRISM — checkbox, radio e switch. */
+
+.prism-choice {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.prism-choice-row {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: 24px;
+  cursor: pointer;
+}
+
+.prism-choice-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.prism-choice-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  color: var(--prism-on-primary);
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-xs);
+  transition:
+    background-color var(--motion-fast) var(--ease-standard),
+    border-color var(--motion-fast) var(--ease-standard);
+}
+
+.prism-choice-box svg {
+  width: 12px;
+  height: 12px;
+  opacity: 0;
+  transform: scale(0.7);
+  transition:
+    opacity var(--motion-fast) var(--ease-enter),
+    transform var(--motion-fast) var(--ease-enter);
+}
+
+.prism-choice-input:checked + .prism-choice-box {
+  background: var(--prism-primary);
+  border-color: var(--prism-primary);
+}
+
+.prism-choice-input:checked + .prism-choice-box svg {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.prism-choice-input:focus-visible + .prism-choice-box {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.prism-choice-input:disabled + .prism-choice-box,
+.prism-choice-input:disabled ~ .prism-choice-label {
+  color: var(--text-muted);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.prism-choice-label {
+  font-size: var(--font-size-body-sm);
+  line-height: var(--line-height-compact);
+  color: var(--text-primary);
+}
+
+.prism-choice-dot {
+  border-radius: var(--radius-full);
+}
+
+.prism-choice-dot::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: var(--prism-on-primary);
+  border-radius: var(--radius-full);
+  opacity: 0;
+  transform: scale(0.6);
+  transition:
+    opacity var(--motion-fast) var(--ease-enter),
+    transform var(--motion-fast) var(--ease-enter);
+}
+
+.prism-choice-input-radio:checked + .prism-choice-dot {
+  background: var(--prism-primary);
+  border-color: var(--prism-primary);
+}
+
+.prism-choice-input-radio:checked + .prism-choice-dot::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.prism-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: 0;
+  margin: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.prism-radio-group[data-inline='true'] {
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: var(--space-6);
+}
+
+.prism-radio-group > legend {
+  padding: 0;
+  margin-bottom: var(--space-2);
+}
+
+.prism-switch {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  min-height: 24px;
+}
+
+.prism-switch-track {
+  position: relative;
+  flex: 0 0 auto;
+  width: 40px;
+  height: 24px;
+  padding: 0;
+  background: var(--surface-hover);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition:
+    background-color var(--motion-fast) var(--ease-standard),
+    border-color var(--motion-fast) var(--ease-standard);
+}
+
+.prism-switch-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  background: var(--text-secondary);
+  border-radius: var(--radius-full);
+  transition:
+    transform var(--motion-fast) var(--ease-standard),
+    background-color var(--motion-fast) var(--ease-standard);
+}
+
+.prism-switch-track[aria-checked='true'] {
+  background: var(--prism-primary);
+  border-color: var(--prism-primary);
+}
+
+.prism-switch-track[aria-checked='true'] .prism-switch-thumb {
+  background: var(--prism-on-primary);
+  transform: translateX(16px);
+}
+
+.prism-switch-track:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.prism-switch-hint {
+  flex-basis: 100%;
+  padding-left: calc(40px + var(--space-3));
+}

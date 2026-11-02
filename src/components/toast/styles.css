@@ -1,0 +1,91 @@
+/* PRISM — toast. */
+
+.prism-toast-viewport {
+  position: fixed;
+  right: var(--space-4);
+  bottom: var(--space-4);
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  width: min(360px, calc(100vw - var(--space-8)));
+  pointer-events: none;
+}
+
+.prism-toast {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: var(--surface-elevated);
+  border: 1px solid var(--border-default);
+  border-left-width: 3px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-3);
+  pointer-events: auto;
+  animation: prism-toast-in var(--motion-normal) var(--ease-enter);
+}
+
+.prism-toast[data-motion='reduced'] {
+  animation: none;
+}
+
+.prism-toast[data-tone='success'] { border-left-color: var(--success); }
+.prism-toast[data-tone='danger'] { border-left-color: var(--danger); }
+
+.prism-toast-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.prism-toast-title {
+  margin: 0;
+  font-size: var(--font-size-body-sm);
+  font-weight: var(--font-weight-strong);
+  color: var(--text-primary);
+}
+
+.prism-toast-description {
+  margin: 0;
+  font-size: var(--font-size-caption);
+  color: var(--text-secondary);
+}
+
+.prism-toast-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  color: var(--text-secondary);
+  background: transparent;
+  border: 0;
+  border-radius: var(--radius-xs);
+  cursor: pointer;
+}
+
+.prism-toast-close:hover {
+  color: var(--text-primary);
+  background: var(--surface-hover);
+}
+
+.prism-toast-close svg {
+  width: 14px;
+  height: 14px;
+}
+
+@keyframes prism-toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

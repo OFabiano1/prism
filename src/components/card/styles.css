@@ -1,0 +1,104 @@
+/* PRISM — card. */
+
+.prism-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  min-width: 0;
+  padding: var(--space-6);
+  background: var(--surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  transition:
+    border-color var(--motion-fast) var(--ease-standard),
+    background-color var(--motion-fast) var(--ease-standard),
+    box-shadow var(--motion-fast) var(--ease-standard),
+    transform var(--motion-fast) var(--ease-standard);
+}
+
+.prism-card[data-variant='compact'] {
+  gap: var(--space-2);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+}
+
+.prism-card[data-variant='outlined'] {
+  background: transparent;
+  border-color: var(--border-default);
+}
+
+.prism-card[data-variant='elevated'] {
+  border-color: transparent;
+  box-shadow: var(--shadow-2);
+}
+
+.prism-card[data-variant='featured'] {
+  background: linear-gradient(180deg, var(--prism-primary-soft), transparent 55%), var(--surface);
+  border-color: var(--prism-primary-border);
+}
+
+.prism-card[data-variant='interactive'] {
+  cursor: pointer;
+}
+
+.prism-card[data-variant='interactive']:hover {
+  border-color: var(--border-strong);
+  background: var(--surface-elevated);
+  transform: translateY(-2px);
+}
+
+.prism-card[data-variant='interactive']:focus-within {
+  border-color: var(--prism-primary);
+}
+
+.prism-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.prism-card-heading {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.prism-card-title {
+  margin: 0;
+  font-size: var(--font-size-h4);
+  line-height: var(--line-height-compact);
+  font-weight: var(--font-weight-heading);
+  letter-spacing: var(--letter-spacing-heading);
+  color: var(--text-primary);
+}
+
+.prism-card-description {
+  margin: 0;
+  font-size: var(--font-size-body-sm);
+  line-height: var(--line-height-compact);
+  color: var(--text-secondary);
+}
+
+.prism-card-meta {
+  flex: 0 0 auto;
+}
+
+.prism-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-width: 0;
+  font-size: var(--font-size-body-sm);
+  color: var(--text-secondary);
+}
+
+.prism-card-footer {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border-subtle);
+}

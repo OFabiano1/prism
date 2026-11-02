@@ -1,0 +1,61 @@
+/* PRISM — progress. */
+
+.prism-progress {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.prism-progress-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.prism-progress-label {
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-secondary);
+}
+
+.prism-progress-value {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-caption);
+  color: var(--text-secondary);
+}
+
+.prism-progress-track {
+  display: block;
+  width: 100%;
+  height: 6px;
+  overflow: hidden;
+  appearance: none;
+  background: var(--surface-hover);
+  border: 0;
+  border-radius: var(--radius-full);
+}
+
+.prism-progress-track::-webkit-progress-bar {
+  background: var(--surface-hover);
+  border-radius: var(--radius-full);
+}
+
+.prism-progress-track::-webkit-progress-value {
+  background: var(--prism-primary);
+  border-radius: var(--radius-full);
+  transition: width var(--motion-moderate) var(--ease-standard);
+}
+
+.prism-progress-track::-moz-progress-bar {
+  background: var(--prism-primary);
+  border-radius: var(--radius-full);
+}
+
+.prism-progress[data-tone='success'] .prism-progress-track::-webkit-progress-value { background: var(--success); }
+.prism-progress[data-tone='success'] .prism-progress-track::-moz-progress-bar { background: var(--success); }
+.prism-progress[data-tone='warning'] .prism-progress-track::-webkit-progress-value { background: var(--warning); }
+.prism-progress[data-tone='warning'] .prism-progress-track::-moz-progress-bar { background: var(--warning); }
+.prism-progress[data-tone='danger'] .prism-progress-track::-webkit-progress-value { background: var(--danger); }
+.prism-progress[data-tone='danger'] .prism-progress-track::-moz-progress-bar { background: var(--danger); }

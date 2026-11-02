@@ -1,0 +1,29 @@
+/* PRISM — select. */
+
+.prism-select {
+  position: relative;
+  display: flex;
+  min-width: 0;
+}
+
+.prism-select-control {
+  appearance: none;
+  padding-right: var(--space-10);
+  cursor: pointer;
+}
+
+.prism-select-icon {
+  position: absolute;
+  top: 50%;
+  right: var(--space-3);
+  width: 16px;
+  height: 16px;
+  color: var(--text-secondary);
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.prism-select[data-variant='compact'] .prism-select-control {
+  min-height: 36px;
+  font-size: var(--font-size-caption);
+}

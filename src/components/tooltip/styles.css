@@ -1,0 +1,38 @@
+/* PRISM — tooltip. */
+
+.prism-tooltip {
+  position: relative;
+  display: inline-flex;
+}
+
+.prism-tooltip-surface {
+  position: absolute;
+  left: 50%;
+  z-index: 70;
+  max-width: 240px;
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--font-size-caption);
+  line-height: var(--line-height-compact);
+  color: var(--text-primary);
+  white-space: normal;
+  background: var(--surface-elevated);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-2);
+  transform: translateX(-50%);
+  animation: prism-tooltip-in var(--motion-fast) var(--ease-enter);
+  pointer-events: none;
+}
+
+.prism-tooltip[data-side='top'] .prism-tooltip-surface {
+  bottom: calc(100% + var(--space-2));
+}
+
+.prism-tooltip[data-side='bottom'] .prism-tooltip-surface {
+  top: calc(100% + var(--space-2));
+}
+
+@keyframes prism-tooltip-in {
+  from { opacity: 0; transform: translateX(-50%) translateY(2px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}

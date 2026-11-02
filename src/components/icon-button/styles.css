@@ -1,0 +1,64 @@
+/* PRISM — icon button. Alvo mínimo de 32px; 40px no tamanho padrão. */
+
+.prism-icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  color: var(--text-secondary);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition:
+    background-color var(--motion-fast) var(--ease-standard),
+    border-color var(--motion-fast) var(--ease-standard),
+    color var(--motion-fast) var(--ease-standard);
+}
+
+.prism-icon-button svg {
+  width: 18px;
+  height: 18px;
+}
+
+.prism-icon-button[data-size='sm'] {
+  width: 32px;
+  height: 32px;
+}
+
+.prism-icon-button[data-size='sm'] svg {
+  width: 16px;
+  height: 16px;
+}
+
+.prism-icon-button[data-size='lg'] {
+  width: 48px;
+  height: 48px;
+}
+
+.prism-icon-button[data-size='lg'] svg {
+  width: 20px;
+  height: 20px;
+}
+
+.prism-icon-button:hover:not(:disabled) {
+  color: var(--text-primary);
+  background: var(--surface-hover);
+}
+
+.prism-icon-button[data-variant='outline'] {
+  border-color: var(--border-strong);
+}
+
+.prism-icon-button[data-variant='secondary'] {
+  background: var(--surface-hover);
+  border-color: var(--border-default);
+}
+
+.prism-icon-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}

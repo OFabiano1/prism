@@ -1,0 +1,74 @@
+/* PRISM — field chrome compartilhado por input, textarea e select. */
+
+.prism-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.prism-field-label {
+  font-size: var(--font-size-body-sm);
+  line-height: var(--line-height-compact);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-secondary);
+}
+
+.prism-field-hint {
+  margin: 0;
+  font-size: var(--font-size-caption);
+  line-height: var(--line-height-compact);
+  color: var(--text-secondary);
+}
+
+.prism-field-error {
+  margin: 0;
+  font-size: var(--font-size-caption);
+  line-height: var(--line-height-compact);
+  font-weight: var(--font-weight-medium);
+  color: var(--danger);
+}
+
+.prism-control {
+  width: 100%;
+  min-height: 44px;
+  padding: 0 var(--space-4);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-body-sm);
+  color: var(--text-primary);
+  background: var(--surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  transition:
+    border-color var(--motion-fast) var(--ease-standard),
+    background-color var(--motion-fast) var(--ease-standard),
+    box-shadow var(--motion-fast) var(--ease-standard);
+}
+
+.prism-control::placeholder {
+  color: var(--text-muted);
+}
+
+.prism-control:hover:not(:disabled) {
+  border-color: var(--border-strong);
+}
+
+.prism-control:focus-visible {
+  outline: none;
+  border-color: var(--prism-primary);
+  box-shadow: 0 0 0 3px var(--focus-ring-soft);
+}
+
+.prism-control:disabled {
+  color: var(--text-muted);
+  background: var(--surface-elevated);
+  cursor: not-allowed;
+}
+
+.prism-control[aria-invalid='true'] {
+  border-color: var(--danger);
+}
+
+.prism-control[aria-invalid='true']:focus-visible {
+  box-shadow: 0 0 0 3px var(--danger-soft);
+}
