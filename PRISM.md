@@ -1,6 +1,6 @@
-# Prism — estética Axolotl BR
+# Prism — camada visual do Axolotl BR
 
-Brief para qualquer IA: recebeu tarefa de UI no universo Axolotl BR? Siga este brief antes de escrever tela ou componente.
+Brief para qualquer IA: recebeu tarefa de UI em qualquer projeto do Axolotl BR? Siga este brief antes de escrever tela ou componente.
 
 ## Essência
 

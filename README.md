@@ -1,16 +1,37 @@
-# Prism — Axolotl Design System
+# Prism — camada visual do Axolotl BR
 
-Biblioteca de design do Axolotl BR: componentes React, tokens e regras de UI/UX que
-qualquer agente ou pessoa segue para produzir tela coerente com a marca.
+Design system de todos os projetos do Axolotl BR: componentes React, tokens e regras
+de UI/UX que qualquer agente ou pessoa segue para produzir tela coerente com a marca.
 
 Status: **em design**. Nada de código de produto foi escrito ainda.
 
 ## Por que existe
 
-O Axolotl BR já tem identidade visual (violeta `#8F00FF`, fundo `#05060c`, Space Grotesk
+O Axolotl BR já tem identidade visual (violeta `#8F00FF`, fundo escuro, Space Grotesk
 + JetBrains Mono), mas ela vive espalhada em cada projeto. Prism concentra isso em um
 pacote instalável e em uma camada de instrução para IA: a IA recebe a tarefa e já sabe
 qual componente usar, quais regras de layout aplicar e o que nunca fazer.
+
+## Projetos
+
+Prism atende todos os projetos do Axolotl BR. A base é a mesma: tokens, componentes e
+regras de layout. O que muda é o escopo de cada interface.
+
+| Projeto | Interface |
+| --- | --- |
+| AXOLOTL BR | site, documentos e painéis |
+| AXOLOTL SMP | site, loja e painéis do servidor |
+| ALT | painéis de bots e automação |
+| AXAPI | documentação e console |
+| LAB | protótipos e registros |
+| ARCADE | páginas de jogos |
+| COMMUNITY | páginas de comunidade |
+| RUNNER | minigames web |
+
+O jogo dentro do Minecraft não usa Prism: usa a linguagem visual do servidor. Fora do
+jogo, toda interface é Prism.
+
+Projeto novo entra na tabela quando tiver interface real. Não crie pasta vazia.
 
 ## Escopo da v0.1
 
