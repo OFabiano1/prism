@@ -77,12 +77,6 @@ npm run verify         # roda tudo na ordem
 O caminho do repositório contém `#`. Vite e Vitest podem falhar nele. Rode o catálogo e
 os testes em uma cópia sem `#` quando isso acontecer.
 
-## Referência
-
-A engenharia vem do [BEDS](https://github.com/meunomeebero/beds) do bero: componentes
-semânticos, sem escape de estilo, uma geometria só, guardas automáticos. A identidade,
-o escopo e o idioma são do Axolotl BR.
-
 ## Licença
 
 MIT — ver [LICENSE](LICENSE).

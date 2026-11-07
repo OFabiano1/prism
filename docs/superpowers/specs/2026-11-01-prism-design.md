@@ -8,12 +8,12 @@ Pasta: `C:\AxolotlBR\#Projetos\prism`
 
 Prism é o design system do Axolotl BR: componentes React reutilizáveis e um guia de
 estilo que garante que site, bots, painéis e projetos futuros pareçam parte do mesmo
-universo. Ele nasce da engenharia do [BEDS](https://github.com/meunomeebero/beds) do
-bero (filosofia, contratos, guardas), mas com identidade, escopo e idioma próprios.
+universo. A engenharia segue uma filosofia própria: componentes semânticos, sem escape
+de estilo, uma geometria só e guardas automáticos.
 
-O BEDS resolve um problema de produto: componentes semânticos, sem escape de estilo,
-uma geometria só. Prism herda esse raciocínio e descarta o catálogo de ~60 componentes
-que o Axolotl não usa, as docs em inglês e a dependência de Tailwind/motion.
+O sistema resolve um problema de produto: cada componente tem variante semântica e o
+app não fura a camada visual. Prism aplica esse raciocínio ao catálogo que o Axolotl
+usa de verdade, com docs em português e sem dependência de Tailwind ou motion.
 
 A marca já existe e não deve ser reinventada. O hub (`AxolotlBR/src/styles/tokens.css`)
 usa `--bg: #05060c`, violeta `#8f00ff`, Space Grotesk + JetBrains Mono. O bot ALT usa
@@ -46,7 +46,7 @@ o mesmo violeta `0x8F00FF`. Prism formaliza isso em tokens, componentes e regras
 
 ## Não-objetivos
 
-- Não é uma cópia do BEDS nem um fork do repositório do bero.
+- Não copia outro design system nem mantém fork de projeto externo.
 - Não publica no npm registry; distribuição por `.tgz` (`npm pack`) ou workspace local.
 - Não entrega páginas prontas: navbar, hero, footer e layout de página são do app.
 - Não traz Tailwind, `motion`, `@dnd-kit`, `embla` ou qualquer dependência pesada.
@@ -84,10 +84,12 @@ Falha mesmo que funcione tecnicamente se:
 - `dist` não é commitado. `package-lock.json` é commitado.
 - Commits em Conventional Commits, em português ou inglês, escopo curto.
 
-## Abordagens consideradas1. **Port fiel do BEDS** — copiar `packages/beds`, renomear, trocar tokens.
+## Abordagens consideradas
+
+1. **Port fiel de um design system externo** — copiar o pacote, renomear, trocar tokens.
    Rápido de executar, mas traz ~1100 arquivos, ~60 componentes e docs em inglês
-   presos a nomes `espaco`. Dívida imediata e marca que vira adesivo sobre o design
-   de outra pessoa. Descartada.
+   presos a nomes de outro projeto. Dívida imediata e marca que vira adesivo sobre o
+   design de outra pessoa. Descartada.
 2. **Prism enxuto** — subconjunto com identidade Axolotl, mesma filosofia de API.
    Escolhida. Custo: ~40 arquivos de código + docs + catálogo.
 3. **Só tokens + CSS** — menor, mas o hub é React e não ganha componente de verdade.
@@ -113,7 +115,7 @@ prism/
   scripts/                # guardas de workspace + install-skill.mjs
 ```
 
-Espelha o BEDS em miniatura. Sem `labs/`, sem `evidence/`, sem histórico de migração.
+Estrutura mínima. Sem `labs/`, sem `evidence/`, sem histórico de migração.
 
 ### Stack
 
@@ -148,7 +150,7 @@ Espelha o BEDS em miniatura. Sem `labs/`, sem `evidence/`, sem histórico de mig
 | Layout | `Stack`, `Inline`, `Grid` |
 | Sistema | `DesignSystemProvider`, `ThemeToggle` |
 
-Regras herdadas do BEDS: variantes semânticas, nunca `className`/`style`; uma
+Regras do sistema: variantes semânticas, nunca `className`/`style`; uma
 geometria só (alturas e raios compartilhados); rótulo visível; caminho de teclado e
 foco devolvido; todo movimento com caminho `prefers-reduced-motion`; estado de
 sucesso/erro nunca depende só de cor.
@@ -166,7 +168,7 @@ sucesso/erro nunca depende só de cor.
 
 - Runtime: `react`/`react-dom` (peer), `lucide-react`.
 - Sem Radix, sem `motion`, sem `@dnd-kit`, sem Tailwind. Foco preso, listbox, tooltip
-  e fila de toast são implementados no pacote, como no BEDS.
+  e fila de toast são implementados no próprio pacote.
 
 ### Verificação
 
