@@ -16,7 +16,11 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "verbatimModuleSyntax": true,
-    "types": ["vitest/globals", "@testing-library/jest-dom"]
+    "baseUrl": ".",
+    "paths": {
+      "prism": ["./src/index.ts"]
+    },
+    "types": ["node", "vitest/globals", "@testing-library/jest-dom"]
   },
   "include": ["src", "examples", "scripts", "vite.config.ts", "vitest.config.ts"]
 }

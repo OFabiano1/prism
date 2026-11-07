@@ -1,6 +1,7 @@
-# Prism — camada visual do Axolotl BR
+# Prism — camada visual e de escrita do Axolotl BR
 
-Brief para qualquer IA: recebeu tarefa de UI em qualquer projeto do Axolotl BR? Siga este brief antes de escrever tela ou componente.
+Brief para qualquer IA: recebeu tarefa de UI ou de texto em qualquer projeto do
+Axolotl BR? Siga este brief antes de escrever tela, componente ou frase publicada.
 
 ## Essência
 
@@ -11,6 +12,22 @@ hierarquia — nunca de efeito decorativo.
 
 **Proibido:** glassmorphism, gradiente decorativo, glow roxo, neon em excesso,
 card dentro de card, dashboard genérico, emoji decorativo, número/dado inventado.
+
+## Escrita — segundo foco
+
+Prism também governa o texto. Nenhuma peça publicada pode parecer saída de IA.
+O documento completo está em [`ESCRITA.md`](ESCRITA.md). O resumo vale para tudo:
+site, doc, anúncio, microcopy, release e texto de bot.
+
+1. Preserve a voz de quem escreveu. Edição mínima. Frase boa não se toca.
+2. Ponto primeiro. Corte abertura de enrolação e metadiscurso.
+3. Concreto vence abstrato: nome, número, data, mecanismo, exemplo.
+4. Mostre o fato. Não anuncie que ele é importante.
+5. Zero dado inventado. Sem dado real, estado vazio verdadeiro ou `[aberto]`.
+6. Corte contraste binário, colon reveal, faux-insight, kicker fake-profound e
+   recapitulação final.
+7. Português brasileiro natural. Sem jargão corporativo, sem emoji decorativo.
+8. Na dúvida, leia em voz alta. Se tropeçar, desembarace. Se sumir a voz, volte.
 
 ## Tokens (prefixo `--prism-*`, camada `.prism-root`)
 
@@ -49,6 +66,7 @@ card dentro de card, dashboard genérico, emoji decorativo, número/dado inventa
 8. Sem `className`/`style` em componente Prism; sem redeclarar `--prism-*`.
 9. Sem dado inventado. Sem dado real → estado vazio verdadeiro.
 10. Texto em **português brasileiro natural**, sem jargão corporativo.
+11. Toda peça escrita passa por [`ESCRITA.md`](ESCRITA.md) antes de publicar.
 
 ## Checklist final
 
@@ -56,4 +74,6 @@ card dentro de card, dashboard genérico, emoji decorativo, número/dado inventa
 - [ ] Contraste OK nos dois temas; foco visível em todo interativo.
 - [ ] Movimento curto com caminho reduzido.
 - [ ] Estados vazio, carregando e erro tratados com dados sintéticos.
+- [ ] Texto passou pelo checklist de `ESCRITA.md`: voz preservada, ponto primeiro,
+      zero clichê de IA, zero dado inventado, fecho concreto.
 - [ ] Soaria como tela do Axolotl BR? Senão, refaça.

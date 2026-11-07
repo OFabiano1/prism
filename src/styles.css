@@ -1,0 +1,22 @@
+/* PRISM — entrada de estilos. Tokens primeiro; primitives; componentes. */
+
+@import '../tokens/index.css';
+@import './primitives/primitives.css';
+
+@import './components/field/styles.css';
+@import './components/input/styles.css';
+@import './components/textarea/styles.css';
+@import './components/select/styles.css';
+@import './components/choice/styles.css';
+@import './components/button/styles.css';
+@import './components/icon-button/styles.css';
+@import './components/badge/styles.css';
+@import './components/avatar/styles.css';
+@import './components/card/styles.css';
+@import './components/alert/styles.css';
+@import './components/breadcrumbs/styles.css';
+@import './components/loading/styles.css';
+@import './components/progress/styles.css';
+@import './components/tabs/styles.css';
+@import './components/toast/styles.css';
+@import './components/tooltip/styles.css';

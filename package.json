@@ -8,10 +8,14 @@
   ],
   "files": [
     "dist",
+    "fonts",
     "tokens",
     "src",
     "docs",
-    "README.md"
+    "README.md",
+    "PRISM.md",
+    "ESCRITA.md",
+    "THIRD-PARTY-NOTICES.md"
   ],
   "exports": {
     ".": {
@@ -35,7 +39,8 @@
     "check:docs": "node scripts/check-docs.mjs",
     "check:manifest": "node --test scripts/check-manifest.test.mjs",
     "check:artifact": "node scripts/check-artifact.mjs",
-    "install:skill": "node scripts/install-skill.mjs",
+    "install:skill": "node brand/scripts/install-skill.mjs",
+    "install:brand-skill": "node brand/scripts/install-skill.mjs",
     "verify": "npm run build && npm run typecheck && npm run check:tokens && npm run check:manifest && npm run check:docs && npm run check:consumer && npm run test && npm run check:artifact"
   },
   "peerDependencies": {
@@ -50,6 +55,7 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.1.0",
     "@testing-library/user-event": "^14.5.2",
+    "@types/node": "^22.10.2",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.4",

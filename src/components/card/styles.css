@@ -33,7 +33,7 @@
 }
 
 .prism-card[data-variant='featured'] {
-  background: linear-gradient(180deg, var(--prism-primary-soft), transparent 55%), var(--surface);
+  background: var(--surface-elevated);
   border-color: var(--prism-primary-border);
 }
 

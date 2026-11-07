@@ -21,6 +21,7 @@ export function Switch({
 }: SwitchProps) {
   const uid = useId();
   const hintId = `${uid}-hint`;
+  const labelId = `${uid}-label`;
 
   return (
     <div className="prism-switch" data-disabled={disabled ? 'true' : undefined}>
@@ -30,13 +31,14 @@ export function Switch({
         className="prism-switch-track"
         aria-checked={checked}
         aria-label={hideLabel ? label : undefined}
+        aria-labelledby={hideLabel ? undefined : labelId}
         aria-describedby={hint ? hintId : undefined}
         disabled={disabled}
         onClick={() => onChange(!checked)}
       >
         <span className="prism-switch-thumb" aria-hidden="true" />
       </button>
-      {hideLabel ? null : <span className="prism-choice-label">{label}</span>}
+      {hideLabel ? null : <span id={labelId} className="prism-choice-label">{label}</span>}
       {hint ? (
         <p id={hintId} className="prism-field-hint prism-switch-hint">
           {hint}

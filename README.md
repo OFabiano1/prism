@@ -1,16 +1,25 @@
-# Prism — camada visual do Axolotl BR
+# Prism — camada visual e de escrita do Axolotl BR
 
 Design system de todos os projetos do Axolotl BR: componentes React, tokens e regras
 de UI/UX que qualquer agente ou pessoa segue para produzir tela coerente com a marca.
+A mesma camada governa o texto publicado, sem clichê de IA.
 
-Status: **em design**. Nada de código de produto foi escrito ainda.
+Status: **base v1.0 implementada**. Tokens, 29 entradas públicas, catálogo, docs,
+manifesto e guardas rodam com `npm run verify`.
+
+## Camadas
+
+| Camada | Documento | Cobre |
+| --- | --- | --- |
+| Visual | `PRISM.md`, `tokens/`, `src/` | cor, tipo, espaço, componente, motion |
+| Escrita | `ESCRITA.md` | voz, edição, microcopy, anúncio, doc |
 
 ## Por que existe
 
-O Axolotl BR já tem identidade visual (violeta `#8F00FF`, fundo escuro, Space Grotesk
+O Axolotl BR já tem identidade visual (violeta `#8F00FF`, fundo escuro, Inter
 + JetBrains Mono), mas ela vive espalhada em cada projeto. Prism concentra isso em um
 pacote instalável e em uma camada de instrução para IA: a IA recebe a tarefa e já sabe
-qual componente usar, quais regras de layout aplicar e o que nunca fazer.
+qual componente usar, quais regras de layout aplicar, como escrever e o que nunca fazer.
 
 ## Projetos
 
@@ -42,9 +51,31 @@ Projeto novo entra na tabela quando tiver interface real. Não crie pasta vazia.
 - Camada para IA: skill instalável, brief para colar, `manifest.json` e checklist de revisão.
 - Docs em português.
 
-## Documento de design
+## Documentação
 
-[`docs/superpowers/specs/2026-11-01-prism-design.md`](docs/superpowers/specs/2026-11-01-prism-design.md)
+A doc canônica fica em [`docs/prism/`](docs/prism/README.md): fundamentos,
+componentes, estados, contrato do consumidor, acessibilidade e revisão. O contrato de
+props é `dist/manifest.json`, gerado no build.
+
+O documento de design original fica em
+[`docs/superpowers/specs/2026-11-01-prism-design.md`](docs/superpowers/specs/2026-11-01-prism-design.md).
+
+## Comandos
+
+```bash
+npm run build          # dist/index.js, dist/styles.css, dist/tokens.css, dist/manifest.json
+npm run dev            # catálogo em examples/
+npm run typecheck
+npm run check:tokens
+npm run check:manifest
+npm run check:docs
+npm run check:consumer
+npm run test
+npm run verify         # roda tudo na ordem
+```
+
+O caminho do repositório contém `#`. Vite e Vitest podem falhar nele. Rode o catálogo e
+os testes em uma cópia sem `#` quando isso acontecer.
 
 ## Referência
 
