@@ -1,6 +1,6 @@
 /**
  * Contrato público do PRISM.
- * Esta é a fonte do `dist/manifest.json`, do guarda de docs e da skill de IA.
+ * Esta é a fonte do `dist/manifest.json` e do guarda de docs.
  * Se um componente muda de prop, muda aqui e na doc no mesmo commit.
  */
 

@@ -61,7 +61,7 @@ for (const name of ['Button', 'DesignSystemProvider', 'ToastProvider', 'Text', '
   if (!types.includes(name)) problems.push(`dist/index.d.ts sem ${name}.`);
 }
 
-for (const entry of ['dist', 'fonts', 'tokens', 'src', 'docs', 'THIRD-PARTY-NOTICES.md', 'README.md']) {
+for (const entry of ['dist', 'fonts', 'tokens', 'src', 'docs/prism', 'THIRD-PARTY-NOTICES.md', 'README.md']) {
   if (!pkg.files.includes(entry)) problems.push(`package.json files sem "${entry}".`);
 }
 

@@ -68,4 +68,4 @@ Use antes de dizer que a tela está pronta. Um item reprovado volta para a mesa.
 ## Teste final
 
 Olhe a tela por cinco segundos. Se ela parece um template genérico, um dashboard de
-banco ou uma saída de IA, refaça. Se ela parece uma peça do Axolotl BR, publique.
+banco ou um texto de robô, refaça. Se ela parece uma peça do Axolotl BR, publique.

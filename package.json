@@ -11,7 +11,7 @@
     "fonts",
     "tokens",
     "src",
-    "docs",
+    "docs/prism",
     "README.md",
     "PRISM.md",
     "ESCRITA.md",
@@ -39,8 +39,6 @@
     "check:docs": "node scripts/check-docs.mjs",
     "check:manifest": "node --test scripts/check-manifest.test.mjs",
     "check:artifact": "node scripts/check-artifact.mjs",
-    "install:skill": "node brand/scripts/install-skill.mjs",
-    "install:brand-skill": "node brand/scripts/install-skill.mjs",
     "verify": "npm run build && npm run typecheck && npm run check:tokens && npm run check:manifest && npm run check:docs && npm run check:consumer && npm run test && npm run check:artifact"
   },
   "peerDependencies": {

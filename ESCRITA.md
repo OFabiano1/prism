@@ -2,7 +2,7 @@
 
 Segundo foco do Prism, ao lado da camada visual. Toda peça publicada no Axolotl BR
 passa por aqui antes de sair: site, documento, anúncio, microcopy, release, texto de
-bot. O texto não pode parecer saída de IA.
+bot. O texto não pode soar genérico ou de robô.
 
 ## Regra zero
 

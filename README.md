@@ -1,8 +1,8 @@
 # Prism — camada visual e de escrita do Axolotl BR
 
 Design system de todos os projetos do Axolotl BR: componentes React, tokens e regras
-de UI/UX que qualquer agente ou pessoa segue para produzir tela coerente com a marca.
-A mesma camada governa o texto publicado, sem clichê de IA.
+de UI/UX para produzir tela coerente com a marca.
+A mesma camada governa o texto publicado, sem clichê.
 
 Status: **base v1.0 implementada**. Tokens, 29 entradas públicas, catálogo, docs,
 manifesto e guardas rodam com `npm run verify`.
@@ -18,7 +18,7 @@ manifesto e guardas rodam com `npm run verify`.
 
 O Axolotl BR já tem identidade visual (violeta `#8F00FF`, fundo escuro, Inter
 + JetBrains Mono), mas ela vive espalhada em cada projeto. Prism concentra isso em um
-pacote instalável e em uma camada de instrução para IA: a IA recebe a tarefa e já sabe
+pacote instalável e em regras escritas: quem pega a tarefa já sabe
 qual componente usar, quais regras de layout aplicar, como escrever e o que nunca fazer.
 
 ## Projetos
@@ -48,7 +48,7 @@ Projeto novo entra na tabela quando tiver interface real. Não crie pasta vazia.
 - ~20 componentes: ação, formulário, navegação, sobreposição, superfície, dados e layout.
 - Tokens `--prism-*` com tema escuro padrão e claro derivado.
 - Catálogo Vite com todos os componentes nos dois temas.
-- Camada para IA: skill instalável, brief para colar, `manifest.json` e checklist de revisão.
+- `manifest.json` com o contrato de props e checklist de revisão.
 - Docs em português.
 
 ## Documentação
@@ -56,9 +56,6 @@ Projeto novo entra na tabela quando tiver interface real. Não crie pasta vazia.
 A doc canônica fica em [`docs/prism/`](docs/prism/README.md): fundamentos,
 componentes, estados, contrato do consumidor, acessibilidade e revisão. O contrato de
 props é `dist/manifest.json`, gerado no build.
-
-O documento de design original fica em
-[`docs/superpowers/specs/2026-11-01-prism-design.md`](docs/superpowers/specs/2026-11-01-prism-design.md).
 
 ## Comandos
 

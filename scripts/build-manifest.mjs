@@ -1,6 +1,6 @@
 /**
  * Gera dist/manifest.json a partir de dist/manifest.js (compilado de src/manifest.ts).
- * O manifesto é o contrato que impede a IA de inventar prop.
+ * O manifesto é o contrato que impede inventar prop.
  */
 import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';

@@ -74,7 +74,7 @@ node scripts/check-consumer.mjs caminho/do/app
 ## Manifesto
 
 `dist/manifest.json` lista nome, tipo, resumo, doc e props de cada entrada. É a fonte
-que impede a IA de inventar prop. Consulte o manifesto antes de escrever tela.
+que impede inventar prop. Consulte o manifesto antes de escrever tela.
 
 ```json
 {

@@ -1,7 +1,7 @@
 # Prism — camada visual e de escrita do Axolotl BR
 
-Brief para qualquer IA: recebeu tarefa de UI ou de texto em qualquer projeto do
-Axolotl BR? Siga este brief antes de escrever tela, componente ou frase publicada.
+Recebeu tarefa de UI ou de texto em qualquer projeto do Axolotl BR? Siga este
+guia antes de escrever tela, componente ou frase publicada.
 
 ## Essência
 
@@ -15,7 +15,7 @@ card dentro de card, dashboard genérico, emoji decorativo, número/dado inventa
 
 ## Escrita — segundo foco
 
-Prism também governa o texto. Nenhuma peça publicada pode parecer saída de IA.
+Prism também governa o texto. Nenhuma peça publicada pode soar genérica ou de robô.
 O documento completo está em [`ESCRITA.md`](ESCRITA.md). O resumo vale para tudo:
 site, doc, anúncio, microcopy, release e texto de bot.
 
@@ -75,5 +75,5 @@ site, doc, anúncio, microcopy, release e texto de bot.
 - [ ] Movimento curto com caminho reduzido.
 - [ ] Estados vazio, carregando e erro tratados com dados sintéticos.
 - [ ] Texto passou pelo checklist de `ESCRITA.md`: voz preservada, ponto primeiro,
-      zero clichê de IA, zero dado inventado, fecho concreto.
+      zero clichê, zero dado inventado, fecho concreto.
 - [ ] Soaria como tela do Axolotl BR? Senão, refaça.

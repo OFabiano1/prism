@@ -1,6 +1,6 @@
 # Prism — documentação canônica
 
-Esta pasta explica o pacote para quem escreve tela e para agentes de IA. Cada arquivo
+Esta pasta explica o pacote para quem escreve tela. Cada arquivo
 responde uma pergunta diferente. Leia na ordem em que a tarefa pede.
 
 | Arquivo | Responde |
