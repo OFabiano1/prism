@@ -167,6 +167,8 @@ Ação do sistema. A variante semântica resolve; não existe escape de estilo.
 | `type` | `button \| submit \| reset` | `button` | Tipo nativo. |
 | `fullWidth` | `boolean` | `false` | Ocupa a largura disponível. |
 | `ariaLabel` | `string` | nenhum | Nome acessível quando o rótulo não basta. |
+| `href` | `string` | nenhum | Renderiza `<a>` com a mesma aparência. Use para navegar; `onClick` é para ação. |
+| `external` | `boolean` | `false` | Com `href`: abre em nova aba com `rel="noopener noreferrer"`. |
 
 ## Card
 

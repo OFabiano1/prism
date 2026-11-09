@@ -29,4 +29,19 @@ describe('Button', () => {
 
     expect(onClick).not.toHaveBeenCalled();
   });
+
+  test('href renderiza link; external abre em nova aba com rel seguro', () => {
+    render(<Button label="Discord" href="https://discord.gg/x" external />);
+
+    const link = screen.getByRole('link', { name: 'Discord' });
+    expect(link).toHaveAttribute('href', 'https://discord.gg/x');
+    expect(link).toHaveAttribute('target', '_blank');
+    expect(link).toHaveAttribute('rel', 'noopener noreferrer');
+  });
+
+  test('link desabilitado perde o href', () => {
+    render(<Button label="Wiki" href="/wiki/" disabled />);
+
+    expect(screen.getByText('Wiki').closest('a')).not.toHaveAttribute('href');
+  });
 });

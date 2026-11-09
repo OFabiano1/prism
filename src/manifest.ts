@@ -184,6 +184,8 @@ export const components: readonly ManifestEntry[] = [
       { name: 'type', type: 'string', required: false, values: ['button', 'submit', 'reset'], summary: 'Tipo nativo. Padrão: button.' },
       { name: 'fullWidth', type: 'boolean', required: false, summary: 'Ocupa a largura disponível.' },
       { name: 'ariaLabel', type: 'string', required: false, summary: 'Nome acessível quando o rótulo não basta.' },
+      { name: 'href', type: 'string', required: false, summary: 'Renderiza link com a mesma aparência.' },
+      { name: 'external', type: 'boolean', required: false, summary: 'Com href: nova aba e rel seguro.' },
     ],
   },
   {
