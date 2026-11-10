@@ -3,8 +3,10 @@
 //
 // uso: node scripts/readme-banner.mjs <config.json> <saida.png>
 //      node scripts/readme-banner.mjs --paleta <saida.png>
+//      node scripts/readme-banner.mjs --logo <saida.png>    (simbolo)
+//      node scripts/readme-banner.mjs --logo-p <saida.png>  (monograma P)
 //
-// config: { eyebrow, titulo, lede, tags: [], motivo: "prisma" | "terminal" | "avatar",
+// config: { eyebrow, titulo, lede, tags: [], motivo: "marca" | "terminal" | "avatar",
 //           linhas?: [[comando, resposta]], avatar?: caminho, legenda? }
 
 import { readFile } from 'node:fs/promises';
@@ -103,17 +105,50 @@ body { background: transparent; }
 `;
 }
 
-function motivoPrisma(cor) {
-  // feixe branco entra no prisma e sai no espectro do Prism, na ordem. cor solida, sem brilho.
-  const faixas = ESPECTRO;
-  const saidas = faixas
-    .map((t, i) => `<line x1="236" y1="${134 + i * 4}" x2="420" y2="${30 + i * 44}" stroke="${cor(t)}" stroke-width="4"/>`)
-    .join('');
-  return `<svg width="420" height="272" viewBox="0 0 420 272">
-    <line x1="0" y1="186" x2="176" y2="146" stroke="${cor('--text-primary')}" stroke-width="3"/>
-    ${saidas}
-    <polygon points="200,46 286,214 114,214" fill="${cor('--background')}" stroke="${cor('--text-primary')}" stroke-width="2"/>
+// ─── marca ───
+
+// simbolo do Prism: as 6 faixas do espectro em pe, lado a lado, e o losango
+// (o desenho do ethereum: peca de cima e chevron de baixo) na frente.
+function svgMarca(cor, lado) {
+  const faixas = ESPECTRO.map(
+    (t, i) => `<rect x="${i * 20}" y="0" width="20" height="120" fill="${cor(t)}"/>`,
+  ).join('');
+  const claro = cor('--prism-neutral-100');
+  const medio = cor('--prism-neutral-200');
+  const escuro = cor('--prism-neutral-300');
+  const contorno = `stroke="${cor('--background')}" stroke-width="1.2" stroke-linejoin="round"`;
+  return `<svg width="${lado}" height="${lado}" viewBox="0 0 120 120">
+    <defs><clipPath id="bloco"><rect width="120" height="120" rx="16"/></clipPath></defs>
+    <g clip-path="url(#bloco)">${faixas}</g>
+    <g ${contorno}>
+      <polygon points="60,12 31,61 60,48" fill="${claro}"/>
+      <polygon points="60,12 89,61 60,48" fill="${escuro}"/>
+      <polygon points="31,61 60,48 89,61 60,78" fill="${medio}"/>
+      <polygon points="31,67 60,84 60,108" fill="${claro}"/>
+      <polygon points="89,67 60,84 60,108" fill="${escuro}"/>
+    </g>
   </svg>`;
+}
+
+function motivoMarca(cor) {
+  return `<div style="width:420px;display:flex;justify-content:center">${svgMarca(cor, 272)}</div>`;
+}
+
+// monograma: o P e as 6 faixas ao lado, na altura da letra.
+function htmlLogoP(cor) {
+  const barras = ESPECTRO.map(
+    (t) => `<span style="display:block;width:30px;height:184px;background:${cor(t)};border-radius:4px"></span>`,
+  ).join('');
+  return `<!doctype html><meta charset="utf-8"><style>${baseCss(cor)}</style>
+  <div id="quadro" style="width:640px;height:320px;display:flex;align-items:flex-end;justify-content:center;gap:28px;padding:0 0 68px">
+    <div style="font-size:256px;font-weight:800;line-height:184px;height:184px;letter-spacing:-0.04em;transform:translateY(-10px)">P</div>
+    <div style="display:flex;gap:8px">${barras}</div>
+  </div>`;
+}
+
+function htmlLogo(cor) {
+  return `<!doctype html><meta charset="utf-8"><style>${baseCss(cor)}</style>
+  <div id="quadro" style="width:480px;height:480px;display:flex;align-items:center;justify-content:center">${svgMarca(cor, 360)}</div>`;
 }
 
 function motivoTerminal(cor, linhas) {
@@ -154,7 +189,7 @@ async function htmlBanner(cfg, cor) {
     )
     .join('');
   let motivo = '';
-  if (cfg.motivo === 'prisma') motivo = motivoPrisma(cor);
+  if (cfg.motivo === 'marca') motivo = motivoMarca(cor);
   else if (cfg.motivo === 'terminal') motivo = motivoTerminal(cor, cfg.linhas ?? []);
   else if (cfg.motivo === 'avatar') motivo = await motivoAvatar(cor, cfg.avatar, cfg.legenda ?? '');
   // titulo com ponto violeta: o unico acento da peca.
@@ -213,6 +248,10 @@ const { cor, brutos } = await lerTokens();
 if (args[0] === '--paleta') {
   if (!args[1]) throw new Error('uso: --paleta <saida.png>');
   await fotografar(htmlPaleta(cor, brutos), path.resolve(args[1]), 1280, 720);
+} else if (args[0] === '--logo' || args[0] === '--logo-p') {
+  if (!args[1]) throw new Error(`uso: ${args[0]} <saida.png>`);
+  const p = args[0] === '--logo-p';
+  await fotografar(p ? htmlLogoP(cor) : htmlLogo(cor), path.resolve(args[1]), p ? 640 : 480, p ? 320 : 480);
 } else {
   if (args.length < 2) throw new Error('uso: node scripts/readme-banner.mjs <config.json> <saida.png>');
   const arqConfig = path.resolve(args[0]);

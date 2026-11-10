@@ -27,13 +27,25 @@ import 'prism/styles.css'
 Componente Prism não recebe `className` nem `style`, e o CSS do projeto não redeclara
 `--prism-*`. A checagem roda com `node ../prism/scripts/check-consumer.mjs <src>`.
 
+## Marca
+
+<p align="center">
+  <img src=".github/readme/logo.png" alt="símbolo do prism: losango na frente das seis faixas do espectro" width="240">
+  &nbsp;&nbsp;
+  <img src=".github/readme/logo-p.png" alt="monograma do prism: a letra P e as seis faixas do espectro ao lado" width="320">
+</p>
+
+O símbolo é o losango na frente das seis faixas do espectro, em pé e lado a lado. O
+monograma é o P com as mesmas seis faixas ao lado. As faixas vão sempre na ordem, do
+amarelo ao roxo.
+
 ## Cores
 
 <p align="center">
   <img src=".github/readme/paleta.png" alt="paleta do prism: o espectro de seis cores, e embaixo a rampa violeta, a rampa neutra e as cores de estado" width="100%">
 </p>
 
-A paleta do Prism é o espectro, a luz que o prisma abre: `#fbe22a` `#fc782b` `#fc2b36`
+A paleta do Prism é o espectro: `#fbe22a` `#fc782b` `#fc2b36`
 `#ff00ea` `#ba00ff` `#7e00fe` (`--prism-spectrum-*`). É a marca do próprio Prism e entra
 inteira, nessa ordem.
 
@@ -76,10 +88,12 @@ Os banners dos repositórios do Axolotl BR saem do mesmo gerador, com as cores l
 ```bash
 node scripts/readme-banner.mjs .github/readme/banner.json .github/readme/banner.png
 node scripts/readme-banner.mjs --paleta .github/readme/paleta.png
+node scripts/readme-banner.mjs --logo .github/readme/logo.png
+node scripts/readme-banner.mjs --logo-p .github/readme/logo-p.png
 ```
 
 O `banner.json` define `eyebrow`, `titulo`, `lede`, `tags` e o `motivo` da direita
-(`prisma`, `terminal` ou `avatar`). Usa o Chromium do Playwright.
+(`marca`, `terminal` ou `avatar`). Usa o Chromium do Playwright.
 
 ## Comandos
 
