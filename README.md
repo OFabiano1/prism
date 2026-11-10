@@ -1,30 +1,54 @@
-# Prism — camada visual e de escrita do Axolotl BR
+<p align="center">
+  <img src=".github/readme/banner.png" alt="prism — tokens, componentes e regras de escrita do axolotl br" width="100%">
+</p>
 
-Design system de todos os projetos do Axolotl BR: componentes React, tokens e regras
-de UI/UX para produzir tela coerente com a marca.
-A mesma camada governa o texto publicado, sem clichê.
+Prism é a camada visual e de escrita de todos os projetos do Axolotl BR. Um pacote React
+com tokens, primitives e componentes, mais as regras de layout e de texto que toda tela
+segue. A identidade (violeta `#8F00FF`, fundo escuro, Inter + JetBrains Mono) vivia
+espalhada em cada projeto. Agora ela mora aqui.
 
-Status: **base v1.0 implementada**. Tokens, 29 entradas públicas, catálogo, docs,
-manifesto e guardas rodam com `npm run verify`.
+## Usar
+
+O pacote é distribuído como tarball dentro do projeto que consome:
+
+```json
+"dependencies": { "prism": "file:vendor/prism-1.1.0.tgz" }
+```
+
+```tsx
+import { DesignSystemProvider, Button } from 'prism'
+import 'prism/styles.css'
+
+<DesignSystemProvider theme="dark">
+  <Button href="#sobre" variant="secondary" label="sobre nós" />
+</DesignSystemProvider>
+```
+
+Componente Prism não recebe `className` nem `style`, e o CSS do projeto não redeclara
+`--prism-*`. A checagem roda com `node ../prism/scripts/check-consumer.mjs <src>`.
+
+## Cores
+
+<p align="center">
+  <img src=".github/readme/paleta.png" alt="paleta do prism: rampa violeta, rampa neutra e cores de estado" width="100%">
+</p>
+
+O violeta é acento: foco, seleção, progresso e marca. Fundo, superfície, texto e borda vêm
+da rampa neutra. Estado nunca depende só de cor, sempre tem texto ou ícone junto.
+A fonte única é [`tokens/colors.css`](tokens/colors.css).
 
 ## Camadas
 
 | Camada | Documento | Cobre |
 | --- | --- | --- |
-| Visual | `PRISM.md`, `tokens/`, `src/` | cor, tipo, espaço, componente, motion |
-| Escrita | `ESCRITA.md` | voz, edição, microcopy, anúncio, doc |
+| Visual | [`PRISM.md`](PRISM.md), `tokens/`, `src/` | cor, tipo, espaço, componente, motion |
+| Escrita | [`ESCRITA.md`](ESCRITA.md) | voz, edição, microcopy, anúncio, doc |
 
-## Por que existe
-
-O Axolotl BR já tem identidade visual (violeta `#8F00FF`, fundo escuro, Inter
-+ JetBrains Mono), mas ela vive espalhada em cada projeto. Prism concentra isso em um
-pacote instalável e em regras escritas: quem pega a tarefa já sabe
-qual componente usar, quais regras de layout aplicar, como escrever e o que nunca fazer.
+A doc completa fica em [`docs/prism/`](docs/prism/README.md): fundamentos, componentes,
+estados, contrato do consumidor, acessibilidade e revisão. O contrato de props é
+`dist/manifest.json`, gerado no build.
 
 ## Projetos
-
-Prism atende todos os projetos do Axolotl BR. A base é a mesma: tokens, componentes e
-regras de layout. O que muda é o escopo de cada interface.
 
 | Projeto | Interface |
 | --- | --- |
@@ -37,42 +61,33 @@ regras de layout. O que muda é o escopo de cada interface.
 | COMMUNITY | páginas de comunidade |
 | RUNNER | minigames web |
 
-O jogo dentro do Minecraft não usa Prism: usa a linguagem visual do servidor. Fora do
-jogo, toda interface é Prism.
+O jogo dentro do Minecraft usa a linguagem visual do servidor. Fora do jogo, toda interface
+é Prism. Projeto novo entra na tabela quando tiver interface real.
 
-Projeto novo entra na tabela quando tiver interface real. Não crie pasta vazia.
+## Banner de README
 
-## Escopo da v0.1
+Os banners dos repositórios do Axolotl BR saem do mesmo gerador, com as cores lidas de
+`tokens/colors.css` e as fontes do pacote:
 
-- Pacote `prism` (React 18.3 e 19 como peer), CSS puro, sem Tailwind.
-- ~20 componentes: ação, formulário, navegação, sobreposição, superfície, dados e layout.
-- Tokens `--prism-*` com tema escuro padrão e claro derivado.
-- Catálogo Vite com todos os componentes nos dois temas.
-- `manifest.json` com o contrato de props e checklist de revisão.
-- Docs em português.
+```bash
+node scripts/readme-banner.mjs .github/readme/banner.json .github/readme/banner.png
+node scripts/readme-banner.mjs --paleta .github/readme/paleta.png
+```
 
-## Documentação
-
-A doc canônica fica em [`docs/prism/`](docs/prism/README.md): fundamentos,
-componentes, estados, contrato do consumidor, acessibilidade e revisão. O contrato de
-props é `dist/manifest.json`, gerado no build.
+O `banner.json` define `eyebrow`, `titulo`, `lede`, `tags` e o `motivo` da direita
+(`prisma`, `terminal` ou `avatar`). Usa o Chromium do Playwright.
 
 ## Comandos
 
 ```bash
-npm run build          # dist/index.js, dist/styles.css, dist/tokens.css, dist/manifest.json
-npm run dev            # catálogo em examples/
-npm run typecheck
-npm run check:tokens
-npm run check:manifest
-npm run check:docs
-npm run check:consumer
+npm run build      # dist/index.js, styles.css, tokens.css e manifest.json
+npm run dev        # catálogo em examples/
 npm run test
-npm run verify         # roda tudo na ordem
+npm run verify     # build, typecheck, guardas de token, manifesto, docs, consumidor, testes e artefato
 ```
 
-O caminho do repositório contém `#`. Vite e Vitest podem falhar nele. Rode o catálogo e
-os testes em uma cópia sem `#` quando isso acontecer.
+O caminho do repositório contém `#`, e Vite e Vitest podem falhar nele. Quando isso
+acontecer, rode o catálogo e os testes numa cópia sem `#`.
 
 ## Licença
 
