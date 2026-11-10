@@ -27,6 +27,19 @@ papéis semânticos, nunca um valor solto.
 O violeta é acento, não preenchimento. Ele ocupa no máximo 10% da área. Botão primário
 é a exceção declarada do sistema. Fora dele, superfície e borda resolvem.
 
+A paleta do Prism é o espectro: a luz que o prisma abre, em seis cores fixas nos dois
+temas. Ela é a marca do próprio Prism (logo, banner, peça sobre o Prism) e não entra
+como acento de interface. Usa as seis juntas e nessa ordem, sem gradiente entre elas.
+
+| Token | Cor |
+| --- | --- |
+| `--prism-spectrum-yellow` | `#fbe22a` |
+| `--prism-spectrum-orange` | `#fc782b` |
+| `--prism-spectrum-red` | `#fc2b36` |
+| `--prism-spectrum-pink` | `#ff00ea` |
+| `--prism-spectrum-violet` | `#ba00ff` |
+| `--prism-spectrum-purple` | `#7e00fe` |
+
 Cada tom semântico tem três papéis: cor cheia, `*-soft` para fundo e `*-border` para
 limite. `success`, `warning`, `danger` e `info` nunca aparecem sozinhos: ícone ou texto
 acompanha a cor.

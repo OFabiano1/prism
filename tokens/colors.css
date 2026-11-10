@@ -5,6 +5,16 @@
 .prism-root {
   color-scheme: dark;
 
+  /* ---------- Spectrum: a paleta do Prism ----------
+     A identidade do próprio Prism: a luz que o prisma abre, do amarelo ao roxo.
+     Fixa nos dois temas. É marca do Prism, não acento de interface. */
+  --prism-spectrum-yellow: #fbe22a;
+  --prism-spectrum-orange: #fc782b;
+  --prism-spectrum-red: #fc2b36;
+  --prism-spectrum-pink: #ff00ea;
+  --prism-spectrum-violet: #ba00ff;
+  --prism-spectrum-purple: #7e00fe;
+
   /* ---------- Brand ramp: Prism Purple ---------- */
   --prism-purple-50: #f5ebff;
   --prism-purple-100: #ebd6ff;

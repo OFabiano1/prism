@@ -30,12 +30,16 @@ Componente Prism não recebe `className` nem `style`, e o CSS do projeto não re
 ## Cores
 
 <p align="center">
-  <img src=".github/readme/paleta.png" alt="paleta do prism: rampa violeta, rampa neutra e cores de estado" width="100%">
+  <img src=".github/readme/paleta.png" alt="paleta do prism: o espectro de seis cores, e embaixo a rampa violeta, a rampa neutra e as cores de estado" width="100%">
 </p>
 
-O violeta é acento: foco, seleção, progresso e marca. Fundo, superfície, texto e borda vêm
-da rampa neutra. Estado nunca depende só de cor, sempre tem texto ou ícone junto.
-A fonte única é [`tokens/colors.css`](tokens/colors.css).
+A paleta do Prism é o espectro, a luz que o prisma abre: `#fbe22a` `#fc782b` `#fc2b36`
+`#ff00ea` `#ba00ff` `#7e00fe` (`--prism-spectrum-*`). É a marca do próprio Prism e entra
+inteira, nessa ordem.
+
+Nas interfaces, o violeta é o acento: foco, seleção, progresso e marca. Fundo, superfície,
+texto e borda vêm da rampa neutra. Estado nunca depende só de cor, sempre tem texto ou
+ícone junto. A fonte única de tudo é [`tokens/colors.css`](tokens/colors.css).
 
 ## Camadas
 

@@ -31,6 +31,8 @@ site, doc, anúncio, microcopy, release e texto de bot.
 
 ## Tokens (prefixo `--prism-*`, camada `.prism-root`)
 
+- **Paleta do Prism:** o espectro `#fbe22a` `#fc782b` `#fc2b36` `#ff00ea` `#ba00ff`
+  `#7e00fe` (`--prism-spectrum-*`). Marca do próprio Prism, não acento de tela.
 - **Marca:** violeta Axolotl `#8f00ff` (`--prism-primary`; hover `#a34aff`, active
   `#7a00db`). Fixa, não é configurável pelo consumidor.
 - **Fundo:** `#09090d` background, `#101015` surface, `#15151c` elevated,

@@ -15,6 +15,11 @@ import { chromium } from '@playwright/test';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
+// a paleta do Prism, na ordem do espectro (tokens/colors.css).
+const ESPECTRO = ['yellow', 'orange', 'red', 'pink', 'violet', 'purple'].map(
+  (n) => `--prism-spectrum-${n}`,
+);
+
 // ─── tokens ───
 
 async function lerTokens() {
@@ -99,10 +104,10 @@ body { background: transparent; }
 }
 
 function motivoPrisma(cor) {
-  // feixe branco entra no prisma e sai em faixas da rampa violeta. cor solida, sem brilho.
-  const faixas = ['--prism-purple-300', '--prism-purple-400', '--prism-purple-500', '--prism-purple-600', '--prism-purple-700'];
+  // feixe branco entra no prisma e sai no espectro do Prism, na ordem. cor solida, sem brilho.
+  const faixas = ESPECTRO;
   const saidas = faixas
-    .map((t, i) => `<line x1="236" y1="${136 + i * 4}" x2="420" y2="${40 + i * 52}" stroke="${cor(t)}" stroke-width="3"/>`)
+    .map((t, i) => `<line x1="236" y1="${134 + i * 4}" x2="420" y2="${30 + i * 44}" stroke="${cor(t)}" stroke-width="4"/>`)
     .join('');
   return `<svg width="420" height="272" viewBox="0 0 420 272">
     <line x1="0" y1="186" x2="176" y2="146" stroke="${cor('--text-primary')}" stroke-width="3"/>
@@ -170,20 +175,22 @@ async function htmlBanner(cfg, cor) {
 }
 
 function htmlPaleta(cor, brutos) {
-  // so tokens reais: rampa violeta, rampa neutra e semanticas.
+  // so tokens reais. primeiro o espectro (a paleta do Prism), grande;
+  // embaixo o que as interfaces usam: rampa violeta, rampa neutra e estados.
   const grupos = [
-    ['violeta', [...brutos.keys()].filter((n) => n.startsWith('--prism-purple-'))],
-    ['neutro', [...brutos.keys()].filter((n) => n.startsWith('--prism-neutral-'))],
-    ['estado', ['--success', '--warning', '--danger', '--info']],
+    ['prism', ESPECTRO, 132],
+    ['violeta', [...brutos.keys()].filter((n) => n.startsWith('--prism-purple-')), 56],
+    ['neutro', [...brutos.keys()].filter((n) => n.startsWith('--prism-neutral-')), 56],
+    ['estado', ['--success', '--warning', '--danger', '--info'], 56],
   ];
   const linhas = grupos
-    .map(([titulo, nomes]) => {
+    .map(([titulo, nomes, altura]) => {
       const blocos = nomes
         .map((n) => {
           const hex = cor(n);
-          const rotulo = n.replace('--prism-purple-', '').replace('--prism-neutral-', '').replace('--', '');
+          const rotulo = n.replace(/^--prism-(spectrum|purple|neutral)-/, '').replace('--', '');
           return `<div style="flex:1;min-width:0">
-            <div style="height:64px;background:${hex};border-radius:8px;border:1px solid ${cor('--border-subtle')}"></div>
+            <div style="height:${altura}px;background:${hex};border-radius:8px;border:1px solid ${cor('--border-subtle')}"></div>
             <div class="mono" style="font-size:12px;margin-top:8px;color:${cor('--text-primary')}">${esc(rotulo)}</div>
             <div class="mono" style="font-size:11px;color:${cor('--text-muted')}">${esc(hex)}</div>
           </div>`;
@@ -205,7 +212,7 @@ const args = process.argv.slice(2);
 const { cor, brutos } = await lerTokens();
 if (args[0] === '--paleta') {
   if (!args[1]) throw new Error('uso: --paleta <saida.png>');
-  await fotografar(htmlPaleta(cor, brutos), path.resolve(args[1]), 1280, 600);
+  await fotografar(htmlPaleta(cor, brutos), path.resolve(args[1]), 1280, 720);
 } else {
   if (args.length < 2) throw new Error('uso: node scripts/readme-banner.mjs <config.json> <saida.png>');
   const arqConfig = path.resolve(args[0]);
